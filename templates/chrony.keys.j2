@@ -1,0 +1,5 @@
+{% for item in chronyconfig.content %}
+{% if item.key is defined %}
+{{ item.key }}
+{% endif %}
+{% endfor %}

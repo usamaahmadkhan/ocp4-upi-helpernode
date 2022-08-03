@@ -1,5 +1,8 @@
 {% for item in chronyconfig.content %}
 server {{ item.server }} {{ item.options }}
+{% if item.key is defined%}
+keyfile /etc/chrony.keys
+{% endif %}
 {% endfor %}
 driftfile /var/lib/chrony/drift
 makestep 1.0 3

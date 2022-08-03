@@ -20,7 +20,8 @@ chronyconfig:
     - server: 10.20.X.X
       options: iburst
     - server: 10.20.X.X
-      options: iburst
+      options: key 1
+      key: 1 SHA1 HEX:123A34C6454FF1234
 
 disk: vda
 masters_disk: vda

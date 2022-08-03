@@ -11,6 +11,7 @@ This is the customized version of these repos:
  - Added host-name option in template for dhcp.conf.j2
  - Added support for LACP bonds for master/worker nodes
  - Added support for different RHCOS disks on masters/workers
+ - Added support for SNTP (Keys for chrony config)
 
 
 # OCP4 Helper Node

@@ -494,10 +494,20 @@
         src: ../templates/chrony.conf.j2
         dest: /tmp/chrony.conf.tmp
 
+    - name: Create temporary chrony.keys file
+      template:
+        src: ../templates/chrony.keys.j2
+        dest: /tmp/chrony.keys.tmp
+
     - name: slurp contents of temporary chrony.conf file
       slurp:
         src: /tmp/chrony.conf.tmp
       register: chronybase64
+
+    - name: slurp contents of temporary chrony.keys file
+      slurp:
+        src: /tmp/chrony.keys.tmp
+      register: chronykeysbase64
 
     - name: Generate Chrony machineconfig
       template:

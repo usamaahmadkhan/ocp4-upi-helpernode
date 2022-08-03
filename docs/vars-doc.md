@@ -368,10 +368,14 @@ chronyconfig:
       options: iburst
     - server: 1.centos.pool.ntp.org
       options: iburst
+    - server: 1.centos.pool.ntp.org
+      options: key 1
+      key: 1 SHA1 HEX:12345678900987654432
 ```
 
 * `chronyconfig.enabled` - This will flag the playbook that you want to setup chrony to use a specific config.
-* `content` - This is an array of servers and their options. This eventually makes it's way to [the `chrony.conf` file](../templates/chrony.conf.j2). If you require further `options`, just put them in quotes: `options: "iburst foo bar"`
+* `content` - This is an array of servers and their options. This eventually makes it's way to [the `chrony.conf` file](../templates/chrony.conf.j2). If you require further `options`, just put them in quotes: `options: "iburst foo bar"`. 
+*  `content[n].key` If Chrony require keys another file chrony.keys will have to be generated. provide `content[n].key` corresponding to the key number used in the `options`
 
 This playbook does NOT set up Chrony for you, instead it provides you with the `machineConfig` that you can load either pre-install or post-install. After the playbook has ran, you can do one of two things.
 
